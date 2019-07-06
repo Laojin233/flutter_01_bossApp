@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:meta/meta.dart';
 
-
 class Job {
   final String name;
   final String cname;
@@ -11,17 +10,15 @@ class Job {
   final String username;
   final String title;
 
-  Job ({
-   @required this.name,
-    @required this.cname,
-    @required this.size,
-    @required this.salary,
-    @required this.username,
-    @required this.title
-});
+  Job(
+      {@required this.name,
+      @required this.cname,
+      @required this.size,
+      @required this.salary,
+      @required this.username,
+      @required this.title});
 
-
-  static List<Job>fromJson(String json){
+  static List<Job> fromJson(String json) {
     List<Job> _jobs = [];
 //    JsonDecoder decoder = new JsonDecoder();
 
@@ -33,15 +30,19 @@ class Job {
 //      _jobs.add(job);
 //    };
 
-    for (var i = 0; i < 10; i++){
-      Job job = new Job(name: "iOS工程师" + i.toString(), cname: "阿里巴巴",
-          size: (i* 10).toString(), salary: "薪水"+(i* 10).toString() + "k", username: "李先生", title: "工程师");
+    for (var i = 0; i < 10; i++) {
+      Job job = new Job(
+          name: "iOS工程师" + i.toString(),
+          cname: "阿里巴巴",
+          size: (i * 10).toString(),
+          salary: "薪水" + (i * 10).toString() + "k",
+          username: "李先生",
+          title: "工程师");
       _jobs.add(job);
     }
 
-    print("jobs个数="+_jobs.length.toString());
+    print("jobs个数=" + _jobs.length.toString());
 
     return _jobs;
   }
-
 }

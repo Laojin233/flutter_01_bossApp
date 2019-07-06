@@ -6,9 +6,7 @@ import 'job.dart';
 
 class JobsTab extends StatefulWidget {
   @override
-
   JobList createState() => new JobList();
-
 }
 
 class JobList extends State<JobsTab> {
@@ -24,33 +22,32 @@ class JobList extends State<JobsTab> {
 
   @override
   Widget build(BuildContext context) {
-
     // TODO: implement build
     return new Scaffold(
       backgroundColor: new Color.fromARGB(255, 242, 242, 245),
       appBar: new AppBar(
         elevation: 0.0,
         title: new Text('职位',
-        style: new TextStyle(fontSize: 20.0,color: Colors.white)),
+            style: new TextStyle(fontSize: 20.0, color: Colors.white)),
       ),
-
       body: new ListView.builder(
-        itemCount: jobs.length,itemBuilder:buildJobItem),
-
+          itemCount: jobs.length, itemBuilder: buildJobItem),
     );
   }
 
-  Widget buildJobItem(BuildContext context,int index){
+  Widget buildJobItem(BuildContext context, int index) {
     Job job = jobs[index];
 
     var jobItem = new InkWell(
-      onTap: (){
-        showDialog(context: context,child: new AlertDialog(
-          content: new Text(
-          "敬请期待",
-          style: new TextStyle(fontSize: 20.0),
-          ),
-        ));
+      onTap: () {
+        showDialog(
+            context: context,
+            child: new AlertDialog(
+              content: new Text(
+                "敬请期待",
+                style: new TextStyle(fontSize: 20.0),
+              ),
+            ));
       },
       child: new JobListItem(job),
     );
@@ -58,9 +55,8 @@ class JobList extends State<JobsTab> {
     return jobItem;
   }
 
-  void getJobList(){
-
-    setState((){
+  void getJobList() {
+    setState(() {
       jobs = Job.fromJson("""
     {
       "list":[
@@ -88,6 +84,5 @@ class JobList extends State<JobsTab> {
 //      print(job.name);
 //      print("数据是这个");
     });
-
   }
 }

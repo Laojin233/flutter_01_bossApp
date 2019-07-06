@@ -3,38 +3,33 @@ import 'package:flutter/material.dart';
 const double _kTextAndIconTabHeight = 53.0;
 const double _kMarginBottom = 3.0;
 
-class IconTab extends StatefulWidget{
-
+class IconTab extends StatefulWidget {
   const IconTab({
     Key key,
     this.text,
     this.icon,
     this.color,
-  }): assert(text != null || icon != null || color != null),
-    super(key:key);
+  })  : assert(text != null || icon != null || color != null),
+        super(key: key);
 
   final String text;
   final String icon;
   final Color color;
 
-
   @override
-  State<StatefulWidget> createState(){
+  State<StatefulWidget> createState() {
     return new IconTabState();
   }
-
 }
 
-class IconTabState extends State<IconTab>{
-
-  Widget _buildLabelTxt(){
-    return new Text(widget.text,
+class IconTabState extends State<IconTab> {
+  Widget _buildLabelTxt() {
+    return new Text(
+      widget.text,
       softWrap: false,
       overflow: TextOverflow.fade,
-      style: new TextStyle(
-        color: widget.color
-      ),
-      );
+      style: new TextStyle(color: widget.color),
+    );
   }
 
   @override
@@ -49,13 +44,13 @@ class IconTabState extends State<IconTab>{
       children: <Widget>[
         new Container(
           child: new Image(
-              image: new AssetImage(widget.icon),
-              height: 30.0,
-              width: 30.0,
+            image: new AssetImage(widget.icon),
+            height: 30.0,
+            width: 30.0,
           ),
           margin: const EdgeInsets.only(bottom: _kMarginBottom),
         ),
-          _buildLabelTxt()
+        _buildLabelTxt()
       ],
     );
 
@@ -66,8 +61,5 @@ class IconTabState extends State<IconTab>{
         height: 50,
       ),
     );
-
   }
-
-
 }
